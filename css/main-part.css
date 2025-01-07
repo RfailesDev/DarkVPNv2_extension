@@ -1,0 +1,53 @@
+.main-part {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.main-part.hided {
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.vpn-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background: var(--button-color);
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    transition: all 0.1s ease;
+    user-select: none;
+
+    img {
+        width: 80px;
+    }
+}
+.vpn-button:hover {
+    transform: scale(1.05);
+}
+.vpn-button:active {
+    transform: scale(0.98);
+}
+
+.vpn-button.connected {
+    background: var(--accent-color);
+}
+.vpn-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+.status-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}

@@ -1,0 +1,72 @@
+:root {
+    --main-color: #000000;
+    --second-color: #232835;
+    --accent-color: #6d00c0;
+    --_main-color: #ffffff;
+    --button-color: #374151;
+    --l_color: #ffffff12;
+    --red: #940000;
+    --font-family: "Inter", serif;
+    --icon-size: 24px;
+    --white-button-hover-color: rgba(0, 0, 0, 0.06);
+    --small-round: 10px;
+}
+
+body {
+    width: 320px;
+    height: 500px;
+    margin: 0;
+    font-family: var(--font-family), serif; /*'Roboto', sans-serif;*/
+    background-color: var(--main-color);
+    border: none;
+    color: var(--_main-color);
+    background: rgb(17, 24, 39);
+    background: linear-gradient(180deg, rgba(17, 24, 39, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    perspective: 800px;
+}
+body.expired {
+    background: #271C11FF;
+    background: linear-gradient(180deg, rgb(39, 28, 17) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.top-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px 5px;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+}
+
+.top-bar.hided {
+    height: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+}
+
+.darkvpn-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-left: 10px;
+    opacity: 0.9;
+}
+
+#sessions-btn {
+    filter: invert();
+    opacity: 0.5;
+}
+
+#settings-btn {
+    filter: invert();
+    opacity: 0.5;
+}

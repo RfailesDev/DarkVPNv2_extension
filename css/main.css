@@ -1,0 +1,94 @@
+button {
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.svg-only-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.svg-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+}
+
+.svg-icon.hided {
+    transform: scale(0.8) translateX(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+}
+
+.svg-button {
+    padding: 7px !important;
+    padding-left: 12px !important;
+    padding-right: calc(7px + 7px + 2px) !important;
+}
+
+.only-svg-button {
+    padding: 5px !important;
+    border-radius: var(--small-round);
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: var(--icon-size); */
+    /* height: var(--icon-size); */
+}
+.only-svg-button.inverted {
+    transform: rotate(90deg);
+}
+
+.only-svg-button.hided {
+    transform: scale(0.8) translateX(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.1s ease;
+}
+
+.only-svg-button:hover {
+    background: var(--white-button-hover-color);
+}
+
+.only-svg-button:active {
+    .svg-icon {
+        transform: scale(0.9);
+    }
+}
+
+.text-lg {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.text-sm {
+    font-size: .875rem;
+    font-weight: 200;
+    opacity: 0.8;
+}
+
+/* SCROLL BAR */
+::-webkit-scrollbar {
+    height: 0px; /* Для вертикального скроллбара (если нужно скрыть и его) */
+    width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent; /* Делаем бегунок прозрачным */
+    border-radius: 0px; /* Убираем закругление (если было) */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Делаем фон дорожки прозрачным */
+}

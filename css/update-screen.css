@@ -1,0 +1,31 @@
+.update-screen {
+    z-index: 99999999;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.update-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    width: 80%;
+}
+
+#update-now-btn {
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background: var(--accent-color);
+    font-weight: 600;
+    color: white;
+}

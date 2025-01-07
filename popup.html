@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkVPN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+Mono:wght@100..900&family=Readex+Pro:wght@160..700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="css/alert.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main-part.css">
+    <link rel="stylesheet" href="css/info-bar.css">
+    <link rel="stylesheet" href="css/tabs.css">
+    <link rel="stylesheet" href="css/servers.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link rel="stylesheet" href="css/login-screen.css">
+    <link rel="stylesheet" href="css/sessions.css">
+    <link rel="stylesheet" href="css/update-screen.css">
+</head>
+<body>
+<div class="alert-container"></div>
+<div class="update-screen" style="display: none; /* другие стили для flex */">
+    <div class="update-content">
+        <span class="text-lg">Update Required</span>
+        <span class="text-sm">Please update the DarkVPN extension to the latest version.</span>
+        <button id="update-now-btn">Ok</button>
+    </div>
+</div>
+<div class="login-screen">
+    <div class="darkvpn-logo">DarkVPN</div>
+    <input class="key-input" placeholder="enter your key here">
+    <button class="login-button" id="login-btn">Login</button>
+    <img class="login-back-deco" src="svg/globe.svg">
+</div>
+<div class="tabs-container">
+    <div class="tab" id="sessions-tab">
+        <div class="tab-content">
+            <span class="tab-title">Sessions</span>
+            <button class="only-svg-button close-tab-btn" title="Close">
+                <img class="svg-icon" src="svg/xmark.svg">
+            </button>
+            <div class="sessions">
+                <div class="current-url">Sessions for <span id="current-domain">example.com</span></div>
+
+                <div class="sessions-tiles-container">
+                    <!-- Сессии будут динамически добавляться сюда -->
+                </div>
+
+                <button class="new-session-btn">New Session</button>
+            </div>
+
+            <div class="session-container" style="display: none;">
+                <input type="text" class="session-name-input" placeholder="Session Name">
+
+                <div class="session-cookies-container">
+                    <!-- Полоски с куки будут динамически добавляться сюда -->
+                </div>
+
+                <div class="buttons">
+                    <button class="cancel-edit-session-btn">Cancel</button>
+                    <button class="save-session-btn">Save Session</button>
+                </div>
+            </div>
+
+            <div class="notifications">
+                <!-- Оповещения будут появляться здесь -->
+            </div>
+        </div>
+    </div>
+    <div class="tab" id="settings-tab">
+        <div class="tab-content">
+            <span class="tab-title">Settings</span>
+            <button class="only-svg-button close-tab-btn" title="Close">
+                <img class="svg-icon" src="svg/xmark.svg">
+            </button>
+            <div class="user-bar">
+                <div class="user-sphere">
+                    <img class="svg-icon" src="svg/user-alt-1.svg" alt="User Icon">
+                </div>
+                <div class="user-info">
+                    <span class="user-name" id="username-text">...</span>
+                    <span class="user-expires-days" id="days-text">...</span>
+                </div>
+            </div>
+            <div class="key-row">
+                <img class="svg-icon" src="svg/key-alt.svg">
+                <span class="key-text" id="short-key-preview-text">...</span>
+            </div>
+            <div class="buttons-row">
+                <button class="settings-btn" id="copy-key-btn">Copy key</button>
+                <button class="settings-btn" id="logout-btn">Logout</button>
+            </div>
+            <div class="sessions-settings-row">
+                <span class="text-sm" id="sessions-size">All sessions size: 100KB</span>
+                <button class="only-svg-button" id="clear-all-sessions">
+                    <img class="svg-icon" src="svg/trash.svg">
+                </button>
+            </div>
+            <span class="text-sm" id="version-text">DarkVPN version installed: 2.12</span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="top-bar">
+        <div class="darkvpn-logo">DarkVPN</div>
+        <div class="buttons">
+            <button class="only-svg-button" id="sessions-btn" title="Sessions">
+                <img class="svg-icon" src="svg/cube.svg">
+            </button>
+            <button class="only-svg-button" id="settings-btn" title="Settings">
+                <img class="svg-icon" src="svg/gear-alt.svg">
+            </button>
+        </div>
+    </div>
+    <main class="main-part">
+        <div class="vpn-button">
+            <img src="images/DarkVPN_LOGO.png">
+        </div>
+        <div class="status-text">
+            <span class="text-lg" id="status-text-1">Not Connected</span>
+            <span class="text-sm" id="status-text-2">Click to connect</span>
+        </div>
+    </main>
+    <div class="info-bar">
+        <div class="preview-container">
+            <img class="svg-icon" src="svg/globe.svg">
+            <div class="location-info-pad">
+                <span class="text-lg">Location</span>
+                <span class="text-sm" id="server-location-text">...</span>
+            </div>
+            <button class="only-svg-button" id="show-more-locations-btn" title="More">
+                <img class="svg-icon" src="svg/chevron-down.svg">
+            </button>
+        </div>
+        <div class="info-container">
+            <div class="server-tile">
+                <div class="info">
+                    <span class="server-name">name</span>
+                    <span class="server-location">moscow</span>
+                </div>
+                <div class="buttons">
+                    <button class="only-svg-button" id="use-server-btn">
+                        <img class="svg-icon" src="svg/play.svg">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="gradient-point"></div>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/darkEngineUI.js"></script>
+<script src="js/alert.js"></script>
+<script src="js/variables.js"></script>
+<script src="js/util.js"></script>
+<script src="js/popup.js"></script>
+<script src="js/menu_new.js"></script>
+<script src="js/tabs.js"></script>
+<script src="js/servers.js"></script>
+<script src="js/sessions.js"></script>
+</body>
+</html>

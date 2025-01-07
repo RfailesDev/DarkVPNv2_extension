@@ -1,0 +1,70 @@
+.server-tile {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: var(--l_color);
+    border-radius: 8px;
+    cursor: pointer;
+
+
+
+    .info {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        /* margin-left: 10px; */
+    }
+
+    .buttons {
+        display: flex;
+    }
+}
+.server-tile:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+.server-tile.selected {
+    background: rgb(255 255 255 / 30%);
+    #use-server-btn {
+        transform: scale(0.5);
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+#use-server-btn {
+    transition: all 0.3s ease;
+}
+
+.server-tile-skeleton {
+    width: 100%;
+    height: 54px;
+    background: linear-gradient(90deg, var(--l_color) 30%, rgba(200, 200, 200, 0.4) 50%, var(--l_color) 70%);
+    border-radius: 8px;
+    background-size: 200% 100%;
+    animation: loading-gradient 1.5s linear infinite;
+}
+
+@keyframes loading-gradient {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.server-name {
+    font-size: 18px;
+    color: #ffffff;
+    padding: 5px 10px;
+    background: var(--second-color);
+    border-radius: 5px;
+}
+
+.server-location {
+    font-size: 18px;
+    font-weight: 600;
+}
